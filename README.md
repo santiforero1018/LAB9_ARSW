@@ -48,54 +48,118 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 
 7. La función que calcula en enésimo número de la secuencia de Fibonacci está muy mal construido y consume bastante CPU para obtener la respuesta. Usando la consola del Browser documente los tiempos de respuesta para dicho endpoint usando los siguintes valores:
     * 1000000
+      > Con el tamaño inicial de la maquina (B1ls):
       > 
       >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/30561e21-41fd-4e31-8531-0ebd7190df3a)
       >
+      > Con el tamaño B2ms:
+      > 
+      >  ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/be22a0ff-f0f1-4095-a61c-e693ec011800)
+      > 
+
     * 1010000
-      >
+      > Con el tamaño inicial de la maquina (B1ls):
+      > 
       >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/a76310da-0fc6-4a62-a386-f1308f2dc162)
       >
-    * 1020000
+      > Con el tamaño B2ms:
       >
+      > ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/7b29c103-5c5c-45c8-a533-a6b9ea6ba799)
+      > 
+
+    * 1020000
+      > Con el tamaño inicial de la maquina (B1ls):
+      > 
       >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/fe0e9297-0572-4531-8ebf-75099ee4acfc)
       >
-    * 1030000
+      > Con el tamaño B2ms:
       >
+      > ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/3c71290b-c4f1-43b8-bd70-482a7df0b7f0)
+      > 
+
+    * 1030000
+      > Con el tamaño inicial de la maquina (B1ls):
+      > 
       >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/dc1e89f8-2855-4939-bd98-ff5e3bd9a99d)
       >
-    * 1040000
+      > Con el tamaño B2ms:
       >
+      > ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/7c042926-a4b2-4c3e-b972-c9baf5a67177)
+      > 
+
+    * 1040000
+      > Con el tamaño inicial de la maquina (B1ls):
+      > 
       >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/23e4959a-9f21-4fd5-9d39-67155ee8220b)
       >
-    * 1050000
+      > Con el tamaño B2ms:
       >
+      > ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/197b7773-e5e9-4768-bac7-5b9634282f7c)
+      > 
+
+    * 1050000
+      > Con el tamaño inicial de la maquina (B1ls):
+      > 
       >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/513a2e9e-94b8-40c6-806a-2d4ec5df3d27)
       >
-    * 1060000
+      > Con el tamaño B2ms:
       >
+      > ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/34cab36c-81eb-4195-9cb0-8326f2461b9f)
+      > 
+
+    * 1060000
+      > Con el tamaño inicial de la maquina (B1ls):
+      > 
       >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/2d615836-777b-4138-bf9a-854b08f7e33c)
       >
+      > Con el tamaño B2ms:
+      >
+      >  ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/4d7b0c19-eb7d-4dcc-97c4-74512e6846c0)
+      > 
+
     * 1070000
-      >
+      > Con el tamaño inicial de la maquina (B1ls):
+      >  
       >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/429764fd-604a-4523-9ffb-c0e88e504c50)
+      > Con el tamaño B2ms:
       >
+      > ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/4477c2eb-e861-42a6-891c-7138c92d0dd9)
+      > 
+ 
     * 108000
+      > Con el tamaño inicial de la maquina (B1ls):
+      > 
       >
-      >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/7db3d6f9-1e54-4761-87be-f903e47266d6)
       >
+      > Con el tamaño B2ms:
+      >
+      > ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/6865ab27-3242-4681-b90d-e1c83dbeb5c9)
+      > 
+
     * 1090000
-      >
+      > Con el tamaño inicial de la maquina (B1ls):
+      > 
       >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/a47a10fd-3183-4f46-ba06-f31b75352d69)
-      >    
+      >
+      > Con el tamaño B2ms:
+      >
+      > ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/6e90292f-f45b-45f7-bbba-44606ffd702c)
+      > 
+
 
 8. Dírijase ahora a Azure y verifique el consumo de CPU para la VM. (Los resultados pueden tardar 5 minutos en aparecer).
 
 ![Imágen 2](images/part1/part1-vm-cpu.png)
 
 
+
 Mi CPU
-<br>
+
+- Consumo de CPU con tamaño B1ls
 ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/c7b63b85-073a-4c9d-9b00-2030e595a738)
+
+- Consumo de CPU con tamaño B2ms
+![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/dd6eaefb-988a-4499-a618-787df9fe8824)
 
 9. Ahora usaremos Postman para simular una carga concurrente a nuestro sistema. Siga estos pasos.
     * Instale newman con el comando `npm install newman -g`. Para conocer más de Newman consulte el siguiente [enlace](https://learning.getpostman.com/docs/postman/collection-runs/command-line-integration-with-newman/).
@@ -125,6 +189,7 @@ Mi CPU
 5. Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.
 6. Adjunte la imagen del resumen de la ejecución de Postman. Interprete:
     * Tiempos de ejecución de cada petición.
+      -  ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/caeaf296-8daa-4818-a8b1-6368d3468956)
     * Si hubo fallos documentelos y explique.
 7. ¿Cuál es la diferencia entre los tamaños `B2ms` y `B1ls` (no solo busque especificaciones de infraestructura)?
 8. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?
