@@ -26,7 +26,7 @@
 					"raw": "http://{{VM1}}:3000/fibonacci/{{nth}}",
 					"protocol": "http",
 					"host": [
-						"{{VM1}}"
+						"{{20.81.235.10}}"
 					],
 					"port": "3000",
 					"path": [
