@@ -48,19 +48,54 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 
 7. La función que calcula en enésimo número de la secuencia de Fibonacci está muy mal construido y consume bastante CPU para obtener la respuesta. Usando la consola del Browser documente los tiempos de respuesta para dicho endpoint usando los siguintes valores:
     * 1000000
+      > 
+      >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/30561e21-41fd-4e31-8531-0ebd7190df3a)
+      >
     * 1010000
+      >
+      >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/a76310da-0fc6-4a62-a386-f1308f2dc162)
+      >
     * 1020000
+      >
+      >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/fe0e9297-0572-4531-8ebf-75099ee4acfc)
+      >
     * 1030000
+      >
+      >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/dc1e89f8-2855-4939-bd98-ff5e3bd9a99d)
+      >
     * 1040000
+      >
+      >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/23e4959a-9f21-4fd5-9d39-67155ee8220b)
+      >
     * 1050000
+      >
+      >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/513a2e9e-94b8-40c6-806a-2d4ec5df3d27)
+      >
     * 1060000
+      >
+      >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/2d615836-777b-4138-bf9a-854b08f7e33c)
+      >
     * 1070000
-    * 1080000
-    * 1090000    
+      >
+      >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/429764fd-604a-4523-9ffb-c0e88e504c50)
+      >
+    * 108000
+      >
+      >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/7db3d6f9-1e54-4761-87be-f903e47266d6)
+      >
+    * 1090000
+      >
+      >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/a47a10fd-3183-4f46-ba06-f31b75352d69)
+      >    
 
 8. Dírijase ahora a Azure y verifique el consumo de CPU para la VM. (Los resultados pueden tardar 5 minutos en aparecer).
 
 ![Imágen 2](images/part1/part1-vm-cpu.png)
+
+
+Mi CPU
+<br>
+![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/c7b63b85-073a-4c9d-9b00-2030e595a738)
 
 9. Ahora usaremos Postman para simular una carga concurrente a nuestro sistema. Siga estos pasos.
     * Instale newman con el comando `npm install newman -g`. Para conocer más de Newman consulte el siguiente [enlace](https://learning.getpostman.com/docs/postman/collection-runs/command-line-integration-with-newman/).
