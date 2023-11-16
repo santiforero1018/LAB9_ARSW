@@ -348,10 +348,12 @@ Nota: debido a la disponibilidad del plan de recursos de azure, no se pudo monta
 * ¿Qué son las *Availability Zone* y por qué seleccionamos 3 diferentes zonas?. ¿Qué significa que una IP sea *zone-redundant*?
   - Las Availability Zone son datacenters localizados en diferentes partes del mundo asociados a azure, con el fin de mantener los sistemas distrbuidos y            cumplir con la disponibilidad y resiliencia de los mismos. Se seleccionaron 3 zonas diferentes para que, si en algun momento se llegase a caer un servicio,      la otra zona esta disponible para seguir atendiendo solicitudes mientras se corrigen los errores en el servicio caido.
   - Una IP es zone-redundant cuando esta fue diseñada para que pueda ser usada en cada una de las zonas donde fue implementado el sistema, permitiendo asi, que      si se cae un servicio, se peuda redirigir a otro sin ningun problema y ya teniendo el registro de dicha dirección IP.
-* ¿Cuál es el propósito del *Network Security Group*?
+* ¿Cuál es el propósito del *Network Security Group*?: ES un servicio que ofrece azure cuyo proposito es controlar el tráfico de red desde y hacia los recursos que se tengan creados en un grupo de recursos.
 * Informe de newman 1 (Punto 2)
 * Presente el Diagrama de Despliegue de la solución.
-
+   >
+   >![image](https://github.com/santiforero1018/LAB9_ARSW/assets/89321404/28ca1100-e3fe-49c1-b501-182f9c4dd238)
+   >
 
 
 
