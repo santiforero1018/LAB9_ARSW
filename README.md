@@ -1,6 +1,8 @@
 ### Escuela Colombiana de Ingeniería
 ### Arquitecturas de Software - ARSW
 
+### Santiago Forero Yate, Juan Sebastian Cepeda Saray
+
 ## Escalamiento en Azure con Maquinas Virtuales, Sacale Sets y Service Plans
 
 ### Dependencias
@@ -129,7 +131,7 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
     * 108000
       > Con el tamaño inicial de la maquina (B1ls):
       > 
-      >
+      > ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/b90ec16b-ef3f-4c80-97fc-e60c1927a2a4)
       >
       > Con el tamaño B2ms:
       >
@@ -183,19 +185,48 @@ Mi CPU
 **Preguntas**
 
 1. ¿Cuántos y cuáles recursos crea Azure junto con la VM?
+   - Se crean en total, se crean 5 items correspondientes para la maquina virtual, los cuales se pueden ver en la siguiente imagen:
+     ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/cb633155-bfb7-460b-8df5-e8afa2fd35fc)
+      Cabe resaltar que esto con respecto a la unica maquina virtual sin montar el balanceador de carga
 2. ¿Brevemente describa para qué sirve cada recurso?
+   - La virtual machine, que es donde se montaran todos los servicios para la ejecución del laboratorio
+   - La ip publica de la maquina, lo que le permite identificarse en la red y poder acceder a esta maquina
+   - el Network Security Mannager en general, realiza funciones de control de acceso y de trafico a la red de la maquina, casi realizando funciones similares
+     a las de un firewall.
+   - La virtual network correspondiente a la maquina, es lo que le permite conectarse con algunos otros componentes, por ahora, solo se conecta esta maquina          virtual
+   - la interfaz de red es por donde va conectarse la maquina virtual y tendra conexión hacia internet
 3. ¿Al cerrar la conexión ssh con la VM, por qué se cae la aplicación que ejecutamos con el comando `npm FibonacciApp.js`? ¿Por qué debemos crear un *Inbound port rule* antes de acceder al servicio?
+   - se esta ejecutando el servicio en consola, y como en esta instancia, mientras se mantenga activa dicha consola, el servicio sigue arriba, y si llegase a         cerrarse la conexión, mata todos los servicios corriendo, entre esos, el servidor levantado con node.
+   - se crea para que se pueda tener acceso a la maquina virtual de manera segura y poder ejectutar los servicios correspondientes 
 4. Adjunte tabla de tiempos e interprete por qué la función tarda tando tiempo.
+
 5. Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.
-6. Adjunte la imagen del resumen de la ejecución de Postman. Interprete:
+   - (se adjunto la imagen anteriormente en la comparación de graficas de CPUs) existe el consumo alto de CPU todavia debido a que se esta buscando realizar la       ejecución en el menor tiempo posible, por lo que el programa explota los recursos que tiene a dispocision dentro de la maquina, reduciendo asi el tiempo de      ejecución   
+7. Adjunte la imagen del resumen de la ejecución de Postman. Interprete:
     * Tiempos de ejecución de cada petición.
+      -  ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/61408dcf-f1dd-413c-936d-b8eb74581a86)
+      -  ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/392dc542-3d35-49d7-85fb-214ed0d13d05)
+      -  ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/ccd1de61-1781-4430-8bfe-9a1fd04591f5)
+      -  ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/a24ab489-c5d1-4d60-9b1e-2288eb9e14ab)
       -  ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/caeaf296-8daa-4818-a8b1-6368d3468956)
     * Si hubo fallos documentelos y explique.
-7. ¿Cuál es la diferencia entre los tamaños `B2ms` y `B1ls` (no solo busque especificaciones de infraestructura)?
-8. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?
-9. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?
-10. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
-11. Aumente la cantidad de ejecuciones paralelas del comando de postman a `4`. ¿El comportamiento del sistema es porcentualmente mejor?
+      - Los errores se refieren al hecho de que se realizaban cierres de conexiones inesperados, aunque tambien influye el hecho de que se calculo varias veces           el mismo numero en cada iteración
+8. ¿Cuál es la diferencia entre los tamaños `B2ms` y `B1ls` (no solo busque especificaciones de infraestructura)?
+   - A continuación se presentan las diferencias entre estos tamaños usando la tabla de azure
+     ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/5877c351-4604-49d0-b1b9-d82edec9fdf6)
+      Con estas caracterisiticas, en general, se usaria un tamaño B2ms para trabajos mucho más exigentes, pero tambien exige un costo económico mayor y pasa lo        contrario con B1ls
+9. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?
+   - de acuerdo a lo que se ha evidenciado, no es tan buena la solución, debido a que si se logra la disminoción de tiempos, pero el consumo de CPU sigue             altisimo, haciendo que se quemen al maximo los recursos que ofrece la maquina virtual en programas como estos 
+10. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?
+   - Se podria ver afectado el servicio que esta alojando la maquina virtual, afectando directamente en primer lugar la disponibilidad del servicio, al hacer el       cambio del tamaño, implica un tiempo de baja del servicio para realizar los cambios pertinenetes y volver a subir el servicio.
+11. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
+   - hubo mejoras fue en el tiempo de respuesta, pues al disponer de un poco más de CPU, pudo tener acceso a más recursos los cuales pudo explotar al maximo el       programa pero el consumo de CPU fue el principal danmificado. 
+12. Aumente la cantidad de ejecuciones paralelas del comando de postman a `4`. ¿El comportamiento del sistema es porcentualmente mejor?
+   - la siguientes graficas muestran el porcentage de la ultima ejecución del sistema
+     ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/ae4d6fe1-45bb-4e18-ad80-23881c8e0be2)
+     ![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/cbacb58d-c2f7-42c7-853e-ffe6698535ed)
+     aunque se tiene una mayor capacidad de computo, una cantidad de peticiones asi tuvieron un tiempo de respuesta muy alto, lo que afecto el rendimiento de la      maquina, por lo que porcentualmente, no se comportó mejor el sistema.
+
 
 ### Parte 2 - Escalabilidad horizontal
 
@@ -272,6 +303,20 @@ http://52.155.223.248/fibonacci/1
 
 2. Realice las pruebas de carga con `newman` que se realizaron en la parte 1 y haga un informe comparativo donde contraste: tiempos de respuesta, cantidad de peticiones respondidas con éxito, costos de las 2 infraestrucruras, es decir, la que desarrollamos con balanceo de carga horizontal y la que se hizo con una maquina virtual escalada.
 
+![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/fae076f6-6f51-4547-a372-a1d0fb2a11e3)
+
+* Metricas de la maquina 1
+![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/4f933321-ddff-4ea1-9700-e00f4bcaaf88)
+
+* Metricas de la maquina 2
+![image](https://github.com/santiforero1018/LAB9_ARSW/assets/88952698/55afb7fb-cefe-42f3-b788-fcbd74944b21)
+
+
+
+- De acuerdo con los tiempos tomados anteriormente, encontramos que al realizar este tipo de escalabilidad, tenemos tiempos de ejecución menores, ya que con el balanceador de cargas, se puede delegar más trabajos a las demas maquinas virtuales asociadas al balanceador.
+- La cantidad de peticiones de exito fueron mejores usando la escalabilidad horizontal que la escalabilidad vertical, si contrastamos con los resultados de la parte anterior.
+- Aunque se tiene mejores tiempos de ejecución y no se consumen tantos recursos como en la escalabilidad vertical, sale un poco más cosotos economicamente montar un sistema con escalabilidad horizontal que vertical, pues se tiene que considerar el montaje de un balanceador de cargas más el montaje de los demas nodos, mientras que en la escalabilidad vertical, el unico precio a tener en cuenta es el tamaño de la maquina virtual a implementar.
+
 3. Agregue una 4 maquina virtual y realice las pruebas de newman, pero esta vez no lance 2 peticiones en paralelo, sino que incrementelo a 4. Haga un informe donde presente el comportamiento de la CPU de las 4 VM y explique porque la tasa de éxito de las peticiones aumento con este estilo de escalabilidad.
 
 ```
@@ -281,12 +326,19 @@ newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALAN
 newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALANCING_AZURE].postman_environment.json -n 10
 ```
 
+Nota: debido a la disponibilidad del plan de recursos de azure, no se pudo montar ni una tercera ni una cuarta maquina virtual, por lo que se realizó esta misma cantidad de peticiones usando las dos maquinas virtuales que si se lograron montar para esta parte del laboratorio, y gracias a la distribución que realiza el balanceador de cargas, pueden llegar a presentarse más peticiones de exito durante su ejecución.
+
 **Preguntas**
 
 * ¿Cuáles son los tipos de balanceadores de carga en Azure y en qué se diferencian?, ¿Qué es SKU, qué tipos hay y en qué se diferencian?, ¿Por qué el balanceador de carga necesita una IP pública?
+  - Azure Aplication GateWay, Azure FrontDoor, Azure Load Balancer y Azure Traffic Manager, estos se difierencian principalmente en el uso de protocolos HTTP(S) y el enrutamiento Regional o Global, por ejemplo, FrontDoor y Traffic Manager solo usan el enrutamiento Global (uno usa HTTP(S) y el otro no respectivamente) mientras que Aplication Gateway es regional y usa HTTP(S), y Load Balancer puede ser tanto global como regional y no depende del uso de HTTP(S)
 * ¿Cuál es el propósito del *Backend Pool*?
+  Es un conjunto de servidores, adonde al hacer la petición de un servicio, el balanceador de cargas podra redireccionar a las maquinas virtuales o a los servicios montados aqui, dependiendo tambien de las reglas establecidas.
 * ¿Cuál es el propósito del *Health Probe*?
+  Esta propiedad le permite al balanceador de cargas determinar en que estado se encuentran las instancias de los servicios, con eso puede determinar si sigue redigiriendo peticiones a esa instancia, o mandarlas a otra
 * ¿Cuál es el propósito de la *Load Balancing Rule*? ¿Qué tipos de sesión persistente existen, por qué esto es importante y cómo puede afectar la escalabilidad del sistema?.
+  - El proposito es definir como el balanceador de cargas va a realizar la distribución de los sistemas
+  - 
 * ¿Qué es una *Virtual Network*? ¿Qué es una *Subnet*? ¿Para qué sirven los *address space* y *address range*?
 * ¿Qué son las *Availability Zone* y por qué seleccionamos 3 diferentes zonas?. ¿Qué significa que una IP sea *zone-redundant*?
 * ¿Cuál es el propósito del *Network Security Group*?
