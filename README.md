@@ -338,9 +338,16 @@ Nota: debido a la disponibilidad del plan de recursos de azure, no se pudo monta
   Esta propiedad le permite al balanceador de cargas determinar en que estado se encuentran las instancias de los servicios, con eso puede determinar si sigue redigiriendo peticiones a esa instancia, o mandarlas a otra
 * ¿Cuál es el propósito de la *Load Balancing Rule*? ¿Qué tipos de sesión persistente existen, por qué esto es importante y cómo puede afectar la escalabilidad del sistema?.
   - El proposito es definir como el balanceador de cargas va a realizar la distribución de los sistemas
-  - 
+  - Los tipos de sesión son: source IP affinity y Cookie-Based affinity
+  - Es importante ya que en uno de los factores, debe de garantizar disponibilidad al usuario en todo momento, asi como tambien mantener persistente su seision      dentro del sistema. Otro de los factores es el cumplimiento de cierto requerimientos adicionales de la apliación. Por utlimo, la escalabilidad del sistema       se puede ver afectada en el sentido de que la distribución puede no llegar a ser uniformepara todos los servidores disponibles, por lo que podria llegarse a     dar desequilibrios dentro de la arquitectura y afectar el rendimiento del sistema. 
 * ¿Qué es una *Virtual Network*? ¿Qué es una *Subnet*? ¿Para qué sirven los *address space* y *address range*?
+  - Para resumir, Una Virtual network, como ya se mencionó anteriormente, se entiende como una red virtual privada en la nube lo que nos permite conectar varios    de nuestros componentes entre si.
+  - una Subnet es una division pequeña de la red virtual que nosotros habremos montado en azure, haciendo que pequeños segmentos no se comuniquen directamente       con la puerta de enlace de la red virtual.
+  - Los Address Space especifican la cantidad o la gama de direcciones Ip que se puede asignar a las subredes que se conformen dentro de la red virtual.
+  - Los Address Range son los rangos de las direcciones Ip a asignar dentro de una subred
 * ¿Qué son las *Availability Zone* y por qué seleccionamos 3 diferentes zonas?. ¿Qué significa que una IP sea *zone-redundant*?
+  - Las Availability Zone son datacenters localizados en diferentes partes del mundo asociados a azure, con el fin de mantener los sistemas distrbuidos y            cumplir con la disponibilidad y resiliencia de los mismos. Se seleccionaron 3 zonas diferentes para que, si en algun momento se llegase a caer un servicio,      la otra zona esta disponible para seguir atendiendo solicitudes mientras se corrigen los errores en el servicio caido.
+  - Una IP es zone-redundant cuando esta fue diseñada para que pueda ser usada en cada una de las zonas donde fue implementado el sistema, permitiendo asi, que      si se cae un servicio, se peuda redirigir a otro sin ningun problema y ya teniendo el registro de dicha dirección IP.
 * ¿Cuál es el propósito del *Network Security Group*?
 * Informe de newman 1 (Punto 2)
 * Presente el Diagrama de Despliegue de la solución.
